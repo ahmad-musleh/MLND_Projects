@@ -13751,7 +13751,14 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>: Predictions have an accuracy of 80.36%.</p>
+<p><strong>Answer</strong>: Predictions have an accuracy of 80.36%. The approach taken was to limit one factor at a time. Every step was backed with visualizations using the vs stats tools.</p>
+<p>What I did was:</p>
+<ol>
+<li>Restrict one variable. In this case I took gender into account first and visualized the results. Although a mojority of the survivors were female, the ratio of survivors to non-survivors was much lower if the class was 3. Another case was the ratio of male survivors if they were in Pclass 1.</li>
+<li>Restrict another variable. In the previous case I realized I could get more information if I visualized the class breakdown. This introduced the nested conditionals in my code. At first if passenger is a female then case on Pclass (And for male respectively).</li>
+<li>Add more restrictions. Certain age ranges did not fare well as others. Which in turn introduced more conditionals in my code. </li>
+<li>Repeatedly add more restrictions. If I continue to add more conditionals (eg. looking into Parch and SibSp) this would push the percentage higher. The number of variables would map to the number of nested conditionals in this case.</li>
+</ol>
 
 </div>
 </div>
