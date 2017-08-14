@@ -11806,7 +11806,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11881,7 +11881,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
@@ -12001,7 +12001,7 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;r2_score&#39;</span>
@@ -12065,7 +12065,7 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Calculate the performance of this model</span>
@@ -12146,14 +12146,15 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;train_test_split&#39;</span>
-<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="c1"># from sklearn.cross_validation import train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="c1"># TODO: Shuffle and split the data into training and testing subsets</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">33</span><span class="p">)</span>
 <span class="c1"># (None, None, None, None)</span>
 
 <span class="c1"># Success</span>
@@ -13292,8 +13293,8 @@ Think about the pros and cons of adding more training points based on if the tra
 <p><strong>Answer: </strong></p>
 <ul>
 <li>max_depth = 3. </li>
-<li>They would eventually converge.</li>
-<li>Yes. This would allow the curves to converge.</li>
+<li>After 300 points the points have reached a point where adding more points does not significantly change score. It just fluctuates at 0.8 . The test curve has converged to around the same 0.8 score and fluctuates there. This model can predict with around 80% confidence. </li>
+<li>It seems that it would just fluctuate around 0.8 hence adding more points would not significantly change the score or performance of the model.</li>
 </ul>
 
 </div>
@@ -13774,7 +13775,7 @@ HYdIU1BPT0REooZ6eiIiEjXU0xMRkaihpCciIlFDSU9ERKKGkp6IiEQNJT0REYkaSnoiIhI1/h+W
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>When the model is trained with a maximum depth of 1, the analysis suffers from high bias due to the model not being complex enough. </li>
+<li>When the model is trained with a maximum depth of 1, the analysis suffers from high bias due to the model not being complex enough. It had not fully understood the features of what we want to train it on. Its like asking asking a more general question. Answering this question does not necessarily yield a good answer as it can be seen in the validation score. The answer to the question could be correct to the general one this model asks but does not answer the question we are asking.</li>
 <li>When the model is trained with a depth of 10 we can see that we acheive near perfect score when it comes to training, however when you look at the validation curves they converge to a score a lot lower than the score of the training set. It cannot generalize well and hence does poorly. </li>
 </ul>
 
@@ -13879,7 +13880,13 @@ HYdIU1BPT0REooZ6eiIiEjXU0xMRkaihpCciIlFDSU9ERKKGkp6IiEQNJT0REYkaSnoiIhI1/h+W
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>K-fold cross validation splits the data into k-buckets. We then proceed to train the data on k-1 buckets. After that we test using the last bucket.</li>
+<li>K-fold cross validation<ul>
+<li>splits the data into k-buckets. </li>
+<li>We then proceed to train the data on k-1 buckets. And test using the last bucket.</li>
+<li>We then train our model k-times.</li>
+<li>We then average the results to get a final model.</li>
+</ul>
+</li>
 <li>This allows us to benefit from using all of the data and train with different datasets. This also removes any leakage that can occur in when just having one testing and continously tweaking it until the estimator does well.</li>
 </ul>
 
@@ -14027,7 +14034,11 @@ Parameter &#39;max_depth&#39; is 4 for the optimal model.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> Hint: </strong> The answer comes from the output of the code snipped above.</p>
-<p><strong>Answer: </strong> 4</p>
+<p><strong>Answer: </strong></p>
+<ul>
+<li>Optimal Model depth = 4</li>
+<li>The result makes sense as this approach is more rigorous and tested 10 models instead of 4. This allowed it to find the most optimal one. Our best guess makes sense because it is the closest to most optimal depth of 4 ( We chose 3 ). Our guess is correct.</li>
+</ul>
 
 </div>
 </div>
@@ -14125,10 +14136,34 @@ Predicted selling price for Client 3&#39;s home: $957,900.00
 <li>Predicted selling price for Client 1  home: $403,000.00</li>
 </ul>
 <ul>
+<li>The house for client 1 seems to be in the middle:<ul>
+<li>The house isn't the smallest</li>
+<li>Its situated in an area where poverty isn't high.</li>
+<li>Student teacher ratio is also not as high.</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li>Predicted selling price for Client 2  home: $285,950.00</li>
 </ul>
 <ul>
+<li>The house for client 2 seems to be on the lower end of the spectrum:<ul>
+<li>The house is the smallest with 4 rooms compared to the other two.</li>
+<li>Poverty level is also high in the neighborhood.</li>
+<li>Student teacher ratio is also somewhat large.</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li>Predicted selling price for Client 3  home: $957,900.00</li>
+</ul>
+<ul>
+<li>The house for client 3 seems to be in the higher class:<ul>
+<li>Number of rooms is greater.</li>
+<li>Poverty level is very low.</li>
+<li>Student teacher ratio is also low.</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li>These reccomendations fit the predictions in: <ul>
